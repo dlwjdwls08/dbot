@@ -1,10 +1,9 @@
-from types import FunctionType
-import discord
+import discord, json
 from discord.ext import commands
 from module import useful
 
 
-token = "ODI4NTI0ODIxNTE5NTMyMDMz.YGq13g.8p-1YIQ-g9lv6dVlvlceJDafqfE"
+token = json.load(open("token.json"))
 bot = commands.Bot('/',None,)
 self_ = object()
 
