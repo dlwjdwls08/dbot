@@ -3,7 +3,7 @@ from discord.ext import commands
 from module import useful
 
 
-token = useful.list_to_original(json.load(open("token.json")))
+token = json.load(open("token.json"))[0] + json.load(open("token.json"))[1]
 bot = commands.Bot('/',None,)
 self_ = object()
 
