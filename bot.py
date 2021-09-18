@@ -45,6 +45,7 @@ async def callfunc(cls:object,funcname,*args):
 
 async def isadminp(ctx:commands.Context):
     if not ctx.author.permissions_in(ctx.channel).administrator:
+        print(ctx.author)
         await ctx.reply("관리자 권한이 없습니다.")
         return False
     return True
