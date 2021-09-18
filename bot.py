@@ -216,6 +216,12 @@ class Commands:
                 registrator.remove(id)
             save.registrator()
 
+        async def registrator(self,ctx:commands.Context):
+            await ctx.send(json.load(open("registrator.json")))
+
+        async def passive(self,ctx:commands.Context):
+            await ctx.send(json.load(open("passiveregister.json")))
+
 for c in Commands.__dict__:
     if c.startswith("_"): continue
     c_ = Commands.__dict__[c]()
