@@ -195,7 +195,7 @@ class Commands:
         def init(self):
             @commands.command('manage')
             async def manage(ctx,command,*args):
-                callfunc(Commands.manage,command,ctx,*args)
+                await callfunc(Commands.manage,command,ctx,*args)
             return manage
 
         async def rmvpassive(self,ctx:commands.Context,name:str):
