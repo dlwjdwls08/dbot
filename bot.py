@@ -30,6 +30,10 @@ async def on_message(message:discord.Message):
     if message.channel.id == 888308882852692008:
         await message.delete()
 
+@bot.event
+async def on_member_join(member:discord.Member):
+    await member.add_roles(discord.utils.get(member.guild.roles,id=888309537071824897))
+
 
 async def callfunc(cls:object,funcname,*args):
     for f in cls.__dict__:
