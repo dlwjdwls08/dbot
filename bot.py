@@ -1,3 +1,4 @@
+import re
 from typing import Literal
 import discord, json, datetime
 from discord.ext import commands
@@ -191,8 +192,30 @@ class Commands:
                         await a.add_roles(role)
                         break
 
-    
+    class manage:
+        def init(self):
+            @commands.command('manage')
+            async def manage(ctx,command,*args):
+                callfunc(Commands.manage,command,ctx,*args)
+            return manage
 
+        async def rmvpassive(self,ctx:commands.Context,name:str):
+            if not await isadminp(ctx): return
+            if name in passive:
+                passive.remove(name)
+            save.passive()
+
+        async def addpassive(self,ctx:commands.Context,name:str):
+            if not await isadminp(ctx): return
+            if not name in passive:
+                passive.append(name)
+            save.passive()
+
+        async def rmvregister(self,ctx:commands.Context,id:int):
+            if not await isadminp(ctx): return
+            if id in registrator:
+                registrator.remove(id)
+            save.registrator()
 
 for c in Commands.__dict__:
     if c.startswith("_"): continue
