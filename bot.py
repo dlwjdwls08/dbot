@@ -69,7 +69,6 @@ class Commands:
                 await ctx.author.edit(nick=f"{nickname}({skil_level})")
                 registrator.append(ctx.author.id)
                 save.registrator()
-                await ctx.message.delete()
                 if nickname in passive:
                     passive.remove(nickname)
                     save.passive()
