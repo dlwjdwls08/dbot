@@ -87,7 +87,7 @@ class Commands:
                 await callfunc(Commands.msg,command,ctx,*args)
             return msg
 
-        async def delete(self,ctx:commands.Context,limit=999):
+        async def delete(self,ctx:commands.Context,limit:int=999):
             if not await isadminp(ctx): return
             c:discord.TextChannel = ctx.channel
             await c.purge(limit=limit)
