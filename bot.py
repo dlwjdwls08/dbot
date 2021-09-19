@@ -235,7 +235,7 @@ class Commands:
             return file
 
         async def send(self,ctx:commands.Context):
-            await ctx.send(files=[discord.File('registrator.json','passiveregister.json')])
+            await ctx.send(files=[discord.File('registrator.json'),discord.File('passiveregister.json')])
 
     class update:
         def init(self):
