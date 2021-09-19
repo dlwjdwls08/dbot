@@ -227,6 +227,16 @@ class Commands:
         async def passive(self,ctx:commands.Context):
             await ctx.send(json.load(open("passiveregister.json")))
 
+    class file:
+        def init(self):
+            @commands.command('file')
+            async def file(ctx,command,*args):
+                await callfunc(Commands.file,command,ctx,*args)
+            return file
+
+        async def send(self,ctx:commands.Context):
+            ctx.send(files=[discord.File('registrator.json','passiveregister.json')])
+
     class update:
         def init(self):
             @commands.command('update')
