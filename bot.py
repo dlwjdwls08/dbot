@@ -20,6 +20,19 @@ async def on_ready():
     async def matchroom(guild_id):
         guild:discord.Guild = bot.get_guild(guild_id)
         
+    async def singleroom(guild_id,name):
+        guild:discord.Guild = bot.get_guild(guild_id)
+        while 1:
+            for c in guild.voice_channels.reverse():
+                c:discord.VoiceChannel
+                if name == c.name:
+                    if len(c.members) >= 2:
+                        ctg:discord.CategoryChannel = c.category
+                        ctg.create_voice_channel(name,user_limit=c.user_limit)
+                        break
+                else:
+                    break
+    await singleroom(888308649628418069)
     await matchroom(888308649628418069)
             
 
@@ -39,10 +52,6 @@ async def on_message(message:discord.Message):
 @bot.event
 async def on_member_join(member:discord.Member):
     await member.add_roles(discord.utils.get(member.guild.roles,id=888309537071824897))
-
-
-
-
 
 
 async def callfunc(cls:object,funcname,*args):
@@ -209,6 +218,7 @@ class Commands:
             print(ctx.author)
             print([ctx.author.activity])
             print([ctx.author.activities])
+
     class manage:
         def init(self):
             @commands.command('manage')
