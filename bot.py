@@ -35,6 +35,7 @@ async def on_member_join(member:discord.Member):
     await member.add_roles(discord.utils.get(member.guild.roles,id=888309537071824897))
 
 
+
 async def callfunc(cls:object,funcname,*args):
     for f in cls.__dict__:
         if f.startswith("_"): continue
@@ -56,29 +57,29 @@ class save:
     def registrator(): json.dump(registrator,open("registrator.json",'w'))
 
 class Commands:
-    # class register:
-    #     def init(self):
-    #         @commands.command("register")
-    #         async def register(ctx:commands.Context,nickname:str = None,skil_level:str = None):
-    #             if ctx.author.id in registrator: return
-    #             if not nickname in passive:
-    #                 if int(ctx.guild.id) != 888308649628418069 or int(ctx.channel.id) != 888308882852692008: return
-    #                 if not skil_level in ('강주력','주력','1군','2군','3군','4군','일반유저'): return
-    #                 if len(nickname) > 12: return
-    #             await ctx.author.send(f"{nickname}({skil_level})으로 등록되었습니다.")
-    #             for role in ctx.guild.roles:
-    #                 if role.id == 888309537071824897:
-    #                     a:discord.Member = ctx.author
-    #                     await a.add_roles(role)
-    #                     break
-    #             await ctx.author.edit(nick=f"{nickname}({skil_level})")
-    #             registrator.append(ctx.author.id)
-    #             save.registrator()
-    #             if nickname in passive:
-    #                 passive.remove(nickname)
-    #                 save.passive()
-    #             # await callfunc(Commands.register,command,ctx,*args)
-    #         return register
+
+    '''class register:
+        def init(self):
+            @commands.command("register")
+            async def register(ctx:commands.Context,nickname:str = None,skil_level:str = None):
+                if ctx.author.id in registrator: return
+                if not nickname in passive:
+                    if int(ctx.guild.id) != 888308649628418069 or int(ctx.channel.id) != 888308882852692008: return
+                    if not skil_level in ('강주력','주력','1군','2군','3군','4군','일반유저'): return
+                    if len(nickname) > 12: return
+                await ctx.author.send(f"{nickname}({skil_level})으로 등록되었습니다.")
+                for role in ctx.guild.roles:
+                    if role.id == 888309537071824897:
+                        a:discord.Member = ctx.author
+                        await a.add_roles(role)
+                        break
+                await ctx.author.edit(nick=f"{nickname}({skil_level})")
+                registrator.append(ctx.author.id)
+                save.registrator()
+                if nickname in passive:
+                    passive.remove(nickname)
+                    save.passive()
+            return register'''
 
     class msg:
         def init(self):
@@ -195,7 +196,8 @@ class Commands:
                         a:discord.Member = ctx.author
                         await a.add_roles(role)
                         break
-
+        async def act(self,ctx:commands.Context,*args):
+            print(ctx.author.activities)
     class manage:
         def init(self):
             @commands.command('manage')
