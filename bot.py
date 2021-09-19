@@ -197,7 +197,7 @@ class Commands:
                         await a.add_roles(role)
                         break
         async def act(self,ctx:commands.Context,*args):
-            print(ctx.author.activities)
+            print(ctx.author.activity)
     class manage:
         def init(self):
             @commands.command('manage')
