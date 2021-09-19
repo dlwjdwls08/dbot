@@ -15,7 +15,7 @@ registrator:list[int] = json.load(open("registrator.json"))
 
 @bot.event
 async def on_ready():
-    print(f"{bot.user.name} logged in as {bot.user.id}")
+    print(f"{bot.user.name} logged in as {bot.user.id} at {now.hour}:{now.minute}")
     print("\n--------------------------------\n")
 
 @bot.event
