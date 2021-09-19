@@ -32,7 +32,7 @@ async def on_ready():
                         break
                 else:
                     break
-    await singleroom(888308649628418069)
+    await singleroom(888308649628418069,"독방")
     await matchroom(888308649628418069)
             
 
