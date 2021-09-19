@@ -17,6 +17,12 @@ registrator:list[int] = json.load(open("registrator.json"))
 async def on_ready():
     print(f"{bot.user.name} logged in as {bot.user.id} at {now.hour}:{now.minute}")
     print("\n--------------------------------\n")
+    async def matchroom(guild_id):
+        guild:discord.Guild = bot.get_guild(guild_id)
+        
+    await matchroom(888308649628418069)
+            
+
 
 @bot.event
 async def on_member_remove(member:discord.Member):
@@ -33,6 +39,9 @@ async def on_message(message:discord.Message):
 @bot.event
 async def on_member_join(member:discord.Member):
     await member.add_roles(discord.utils.get(member.guild.roles,id=888309537071824897))
+
+
+
 
 
 
@@ -197,7 +206,9 @@ class Commands:
                         await a.add_roles(role)
                         break
         async def act(self,ctx:commands.Context,*args):
-            print(ctx.author.activity)
+            print(ctx.author)
+            print([ctx.author.activity])
+            print([ctx.author.activities])
     class manage:
         def init(self):
             @commands.command('manage')
