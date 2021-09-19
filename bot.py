@@ -1,6 +1,7 @@
+from functools import partial
 import re
 from typing import Literal
-import discord, json, datetime
+import discord, json, datetime, asyncio, threading
 from discord.ext import commands
 from module import useful
 
@@ -19,22 +20,6 @@ async def on_ready():
     print("\n--------------------------------\n")
     async def matchroom(guild_id):
         guild:discord.Guild = bot.get_guild(guild_id)
-        
-    async def singleroom(guild_id,name):
-        guild:discord.Guild = bot.get_guild(guild_id)
-        v = guild.voice_channels
-        v.reverse()
-        while 1:
-            for c in v:
-                c:discord.VoiceChannel
-                if name == c.name:
-                    if len(c.members) >= 2:
-                        ctg:discord.CategoryChannel = c.category
-                        ctg.create_voice_channel(name,user_limit=c.user_limit)
-                        break
-                else:
-                    break
-    await singleroom(888308649628418069,"독방")
     await matchroom(888308649628418069)
             
 
