@@ -235,7 +235,7 @@ class Commands:
             return update
 
         async def check(self,ctx:commands.Context):
-            value = ''
+            value = '수정'
             await ctx.send(f'update : {value}')
 
 for c in Commands.__dict__:
