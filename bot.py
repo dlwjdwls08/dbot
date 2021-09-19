@@ -227,6 +227,17 @@ class Commands:
         async def passive(self,ctx:commands.Context):
             await ctx.send(json.load(open("passiveregister.json")))
 
+    class update:
+        def init(self):
+            @commands.command('update')
+            async def update(ctx,command,*args):
+                await callfunc(Commands.update,command,ctx,*args)
+            return update
+
+        async def check(self,ctx:commands.Context):
+            value = ''
+            await ctx.send(f'update : {value}')
+
 for c in Commands.__dict__:
     if c.startswith("_"): continue
     c_ = Commands.__dict__[c]()
