@@ -22,8 +22,10 @@ async def on_ready():
         
     async def singleroom(guild_id,name):
         guild:discord.Guild = bot.get_guild(guild_id)
+        v = guild.voice_channels
+        v.reverse()
         while 1:
-            for c in guild.voice_channels.reverse():
+            for c in v:
                 c:discord.VoiceChannel
                 if name == c.name:
                     if len(c.members) >= 2:
